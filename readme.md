@@ -10,6 +10,8 @@
 
 
 ## Oppgave 1 - AWS Lambda
+- [ ] Could add logging to this function as a plus
+- [ ] Could define SAM role/policy for this 
 
 #### Trinn 1: Opprett en SAM-applikasjon
 - [ ] Opprett en ny mappe i repositoryet ditt for SAM-applikasjonen, for eksempel kalt `sam_lambda`.
