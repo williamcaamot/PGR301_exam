@@ -5,6 +5,11 @@ Description: >
 
   Sample SAM Template for oppgave1-sam
 
+Parameters:
+  BucketName:
+    Type: String
+    Description: "pgr301-couch-explorers"
+
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
@@ -21,6 +26,9 @@ Resources:
       CodeUri: hello_world/
       Handler: app.lambda_handler
       Runtime: python3.9
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref BucketName
       Architectures:
       - x86_64
       Events:
