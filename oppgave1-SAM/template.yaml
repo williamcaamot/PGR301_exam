@@ -23,7 +23,7 @@ Resources:
   ImageGenerationFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello_world/
+      CodeUri: image_generator/
       Handler: app.lambda_handler
       Runtime: python3.9
       Environment:
@@ -61,12 +61,12 @@ Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  HelloWorldApi:
-    Description: API Gateway endpoint URL generating images
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-  HelloWorldFunction:
-    Description: Image generation Lambda Function
-    Value: !GetAtt HelloWorldFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: Implicit IAM Role created for Image Generation function
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+  ImageGenerationApi:
+    Description: API Gateway endpoint URL for image generation
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/generateImage/"
+  ImageGenerationFunction:
+    Description: Image generation Lambda Function ARN
+    Value: !GetAtt ImageGenerationFunction.Arn
+  ImageGenerationFunctionIamRole:
+    Description: IAM Role for the Image Generation Lambda Function
+    Value: !GetAtt ImageGenerationFunctionRole.Arn
