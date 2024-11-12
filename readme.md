@@ -1,3 +1,14 @@
+## Useful links
+> Cloud9 tools: https://github.com/glennbechdevops/cloud9_tools
+> 
+> AWS Signin: https://eu-north-1.signin.aws.amazon.com
+
+## Todo
+- [ ] Setup Git on Cloud9 
+- [ ] Expand storage
+- [ ] Fix permissions? If necessary
+
+
 ## Oppgave 1 - AWS Lambda
 
 #### Trinn 1: Opprett en SAM-applikasjon
