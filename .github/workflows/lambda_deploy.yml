@@ -1,4 +1,4 @@
-name: Run AWS CLI Command
+name: Run AWS SAM Commands
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - main  # Specify which branch to run the action on, or modify as per your needs
 
 jobs:
-  run-aws-cli:
+  run-aws-sam:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -20,8 +20,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWSSECRETACCESSKEY }}
           aws-region: eu-west-1  # Specify your region, update if needed
 
-      - name: Run AWS CLI command
+      - name: Install AWS SAM CLI
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y unzip
+          wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+          unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+          sudo ./sam-installation/install
+
+      - name: Verify SAM Installation
+        run: sam --version
+
+      - name: Run AWS SAM CLI commands
         run: |
           sam build --use-container
-          sam deploy --force-upload
-          sam deploy
+          sam deploy --config-file samconfig.toml --force-upload
