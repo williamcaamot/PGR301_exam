@@ -1,0 +1,12 @@
+
+# Event Source Mapping to trigger Lambda from SQS
+resource "aws_lambda_event_source_mapping" "sqs_trigger" {
+  event_source_arn = aws_sqs_queue.image_queue.arn
+  function_name    = aws_lambda_function.infra_lambda_47.arn
+  batch_size       = 10              # Optional, number of messages the Lambda can process at once
+  enabled          = true
+}
+
+resource "aws_sqs_queue" "image_queue" {
+  name = "47-image-queue"
+}
