@@ -76,7 +76,7 @@ data "archive_file" "lambda_zip" {
 # see  https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function.html
 
 resource "aws_lambda_function" "infra_lambda_47" {
-  function_name = "47-infra-lambda"
+  function_name = var.lambda_function_name
   role          = aws_iam_role.lambda_role.arn
   handler       = "lambda_sqs.lambda_handler"
   runtime       = "python3.9"
@@ -86,7 +86,8 @@ resource "aws_lambda_function" "infra_lambda_47" {
   
   environment {
     variables = {
-      BUCKET_NAME = "pgr301-couch-explorers"
+      BUCKET_NAME = var.bucket_name
+      KANDIDATNUMMER = var.kandidatnummer
     }
   }
   
