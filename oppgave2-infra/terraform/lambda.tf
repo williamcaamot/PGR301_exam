@@ -14,27 +14,6 @@ resource "aws_iam_role" "lambda_role" {
   })
 }
 
-# Add IAM policy for Lambda access to specific SQS queue
-resource "aws_iam_role_policy" "lambda_sqs_policy" {
-  name = "47-lambda-sqs-policy"
-  role = aws_iam_role.lambda_role.id
-
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Action = [
-          "sqs:ReceiveMessage",
-          "sqs:DeleteMessage",
-          "sqs:GetQueueAttributes"
-        ],
-        Effect = "Allow",
-        Resource = aws_sqs_queue.image_queue.arn
-      }
-    ]
-  })
-}
-
 resource "aws_iam_role_policy" "lambda_logging_policy" {
   name = "lambda-logging-policy"
   role = aws_iam_role.lambda_role.id  # replace with your Lambda role resource name
@@ -55,7 +34,7 @@ resource "aws_iam_role_policy" "lambda_logging_policy" {
   })
 }
 
-resource "aws_iam_role_policy" "labda_bedrock_policy" {
+resource "aws_iam_role_policy" "lambda_bedrock_policy" {
   name = "lambda-bedrock-policy"
   role = aws_iam_role.lambda_role.id  # replace with your Lambda role resource name
 
@@ -63,12 +42,23 @@ resource "aws_iam_role_policy" "labda_bedrock_policy" {
     Version = "2012-10-17",
     Statement = [
       {
+        Action = "bedrock:InvokeModel",
         Effect = "Allow",
+        Resource = "*" # TODO Should possibly fix this to be less priviledged
+      },
+      {
+        Action: "s3:PutObject",
+        Effect: "Allow",
+        Resource = "arn:aws:s3:::pgr301-couch-explorers/47/*"
+      },
+      {
         Action = [
-          "bedrock:InvokeModel",
-          "s3:PutObject",
+          "sqs:ReceiveMessage",
+          "sqs:DeleteMessage",
+          "sqs:GetQueueAttributes"
         ],
-        Resource = "*"
+        Effect = "Allow",
+        Resource = aws_sqs_queue.image_queue.arn
       }
     ]
   })
