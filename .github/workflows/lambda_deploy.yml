@@ -23,4 +23,4 @@ jobs:
       - name: Run AWS CLI command
         run: |
           sam build --template-file oppgave1-SAM/template.yaml --use-container
-          sam deploy --config-file oppgave1-SAM/samconfig.toml --force-upload
+          sam deploy --no-interactive --config-file oppgave1-SAM/samconfig.toml --force-upload
