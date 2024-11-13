@@ -20,7 +20,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWSSECRETACCESSKEY }}
           aws-region: eu-west-1  # Specify your region, update if needed
 
-      - name: Run AWS CLI command
+      - name: Build and deploy Lambda with SAM
         run: |
           sam build --template-file oppgave1-SAM/template.yaml --use-container
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file oppgave1-SAM/samconfig.toml
