@@ -21,7 +21,6 @@ def lambda_handler(event, context):
         }
     
     image_url = generateAndSaveImage(bucket_name, prompt)
-
     return {
         "statusCode": 200,
         "body": json.dumps({
@@ -31,8 +30,6 @@ def lambda_handler(event, context):
             
         }),
     }
-
-
 def generateAndSaveImage(bucket_name, prompt):
     # Set up the AWS clients
     bedrock_client = boto3.client("bedrock-runtime", region_name="us-east-1")
