@@ -13,6 +13,9 @@ MODEL_ID = "amazon.titan-image-generator-v1"
 BUCKET_NAME =  os.environ["BUCKET_NAME"]
 KANDIDATNUMMER = os.environ["KANDIDATNUMMER"]
 
+
+
+
 def lambda_handler(event, context):
     # Loop through all SQS records in the event
     for record in event["Records"]:
