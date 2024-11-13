@@ -11,7 +11,7 @@ s3_client = boto3.client("s3")
 
 MODEL_ID = "amazon.titan-image-generator-v1"
 BUCKET_NAME =  os.environ["BUCKET_NAME"]
-#BUCKET_NAME = "pgr301-couch-explorers"
+KANDIDATNUMMER = os.environ["KANDIDATNUMMER"]
 
 def lambda_handler(event, context):
     # Loop through all SQS records in the event
@@ -20,7 +20,7 @@ def lambda_handler(event, context):
         prompt = record["body"]
         
         seed = random.randint(0, 2147483647)
-        s3_image_path = f"47/from/oppgave2/titan_{seed}.png"
+        s3_image_path = f"{KANDIDATNUMMER}/oppgave2/titan_{seed}.png"
         
         # Prepare the request for image generation
         native_request = {
