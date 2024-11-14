@@ -1,6 +1,6 @@
 
 # IAM Role for Lambda
-resource "aws_iam_role" "lambda_role" {
+resource "aws_iam_role" "lambda_iam_role" {
   name = "47-iam-lambda-role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -14,9 +14,9 @@ resource "aws_iam_role" "lambda_role" {
   })
 }
 
-resource "aws_iam_role_policy" "lambda_logging_policy" {
-  name = "lambda-logging-policy"
-  role = aws_iam_role.lambda_role.id  # replace with your Lambda role resource name
+resource "aws_iam_role_policy" "lambda_iam_logging_policy" {
+  name = "47-lambda_iam_logging_policy"
+  role = aws_iam_role.lambda_iam_role.id  # replace with your Lambda role resource name
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -35,8 +35,8 @@ resource "aws_iam_role_policy" "lambda_logging_policy" {
 }
 
 resource "aws_iam_role_policy" "lambda_bedrock_policy" {
-  name = "lambda-bedrock-policy"
-  role = aws_iam_role.lambda_role.id  # replace with your Lambda role resource name
+  name = "47-lambda-bedrock-policy"
+  role = aws_iam_role.lambda_iam_role.id  # replace with your Lambda role resource name
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -76,9 +76,9 @@ data "archive_file" "lambda_zip" {
 # Create the Lambda function
 # see  https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function.html
 
-resource "aws_lambda_function" "infra_lambda_47" {
+resource "aws_lambda_function" "image_generation_lambda" {
   function_name = var.lambda_function_name
-  role          = aws_iam_role.lambda_role.arn
+  role          = aws_iam_role.lambda_iam_role.arn
   handler       = "lambda_sqs.lambda_handler"
   runtime       = "python3.9"
   filename = data.archive_file.lambda_zip.output_path
@@ -97,6 +97,6 @@ resource "aws_lambda_function" "infra_lambda_47" {
 resource "aws_lambda_permission" "allow_invocation" {
   statement_id  = "AllowExecutionFromAPI"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.infra_lambda_47.function_name
+  function_name = aws_lambda_function.image_generation_lambda.function_name
   principal     = "apigateway.amazonaws.com"
 }

@@ -18,22 +18,9 @@ variable "bucket_name" {
 }
 
 variable "kandidatnummer" {
-    description = "Kandidatnummer to select in what path to save images in bucket"
+    description = "Kandidatnummer for å velge hvilken path som ting skal lagres ved i S3 bucket, kan også brukes for å navngi ressurser"
     type        = string
     default     = "47"
-}
-
-
-variable "sqs_alarm_threshold" {
-  description = "Threshold for the ApproximateAgeOfOldestMessage metric in seconds."
-  type        = number
-  default     = 30  # Default to 10 minutes
-}
-
-variable "sqs_alarm_period" {
-  description = "The period in seconds over which the metric is evaluated."
-  type        = number
-  default     = 60  # Default to 5 minutes
 }
 
 variable "sqs_email_for_alarms" {
