@@ -1,4 +1,4 @@
-name: Deploy Lambda with SAM
+name: Oppgave 1 - Deploy Lambda with SAM
 
 on:
   push:
