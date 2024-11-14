@@ -83,7 +83,7 @@ resource "aws_lambda_function" "image_generation_lambda" {
   runtime       = "python3.9"
   filename = data.archive_file.lambda_zip.output_path
   source_code_hash = filebase64sha256(data.archive_file.lambda_zip.output_path)
-  timeout = 40
+  timeout = 30 # Med batch size = 1, og parametre satt i oppgave4, vil dette sørge for at man blir varslet hvis det tar mer enn 45 sekunder å generere et bilde. Ifølge oppgavne tar det inntil 10 sekunder (men kan sikkert ta mer)
   
   environment {
     variables = {

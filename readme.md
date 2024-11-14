@@ -55,6 +55,12 @@ Image navn:
 `docker run -e AWS_ACCESS_KEY_ID=xxx -e AWS_SECRET_ACCESS_KEY=yyy -e SQS_QUEUE_URL=https://sqs.eu-west-1.amazonaws.com/244530008913/47-image-queue williamcaamot/oppgave3_java_sqs_client "me on top of a pyramid"`
 
 ## Oppgave 4
+> E-post kan endres i variables.tf
+> Eval perioder = 1
+> Period = 60
+> Threshold = 45 
+> 
+Dette er satt ganske aggresivt til å begynne med, men siden brukere allerede har klaget i App Store er det bedre å begynne aggresivt, deretter prøve å løse problemet før man eventuelt setter mindre aggresive terskler.
 
 
 ## Oppgave 5
