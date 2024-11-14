@@ -40,14 +40,14 @@ Pushe til annen branch Workfow run:
 ### To-do
 - [ ] Should use modules
 - [ ] Should use .env variables to extract necessary information and store them as .envs rather than in the text
-- [ ] Should always use least privilege
+- [ ] Should always use the least privileges
 
 ## Oppgave 3
 Image navn:
 > williamcaamot/oppgave3_java_sqs_client
 
 ### Beskrivelse av taggestrategi
-- Strategien jeg har valgt for tagging er å bruke commit-hashen fra hver commit til main som tag, samtidig som alltid peker til den nyeste committen på main. Denne strategien er i tråd med hva som anses som god praksis innen Continuous Deployment. Dette gjør det enkelt å alltid bruke siste versjon, samtidig som man enkelt kan rulle tilbake til tidligere versjoner. Strategien gjør det også enkelt å koble commits i GitHub med imagetagger i Docker Hub. En ulempe er at det raskt kan bli mange imagetagger. Hvis man har et fullt automatisert CI/CD-oppsett der commits til main utløser en ny versjon, kan dette være en passende strategi. Men hvis man ønsker å kun release av og til, og commits til main ikke nødvendigvis betyr en ny release, kan denne strategien føre til unødvendig mange imageversjoner i Docker Hub. Et devops team ville sannsynligvis laget en taggestrategi som passer godt med deres egen releasestrategi. 
+- Strategien jeg har valgt for tagging er å bruke commit-hashen fra hver commit til main som tag, samtidig som latest taggen alltid peker til den nyeste committen på main. Denne strategien er i tråd med hva som anses som god praksis innen Continuous Deployment. Dette gjør det enkelt å alltid bruke siste versjon, samtidig som man enkelt kan rulle tilbake til tidligere versjoner. Strategien gjør det også enkelt å koble commits i GitHub med imagetagger i Docker Hub. En ulempe er at det raskt kan bli mange imagetagger. Hvis man har et fullt automatisert CI/CD-oppsett der commits til main utløser en ny versjon, kan dette være en passende strategi. Men hvis man ønsker å kun release av og til, og commits til main ikke nødvendigvis betyr en ny release, kan denne strategien føre til unødvendig mange imageversjoner i Docker Hub. Et devops team ville sannsynligvis laget en taggestrategi som passer godt med deres egen releasestrategi. 
 
 ## Oppgave 4
 
