@@ -3,7 +3,7 @@ terraform {
 
   backend "s3" {
     bucket = "pgr301-2024-terraform-state"
-    key    = var.kandidatnummer + "/state.tfstate"
+    key    = "47/state.tfstate"
     region = "eu-west-1"
     encrypt = true
   }
