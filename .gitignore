@@ -17,7 +17,7 @@
 oppgave2/terraform/*terraform
 ./.terraform
 
-/oppgave2-infra/terraform/.terraform/*
+/oppgave2_infra/terraform/.terraform/*
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/reactnative,intellij,node

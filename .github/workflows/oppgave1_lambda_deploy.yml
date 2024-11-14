@@ -22,5 +22,5 @@ jobs:
 
       - name: Build and deploy Lambda with SAM
         run: |
-          sam build --template-file oppgave1-sam-lambda/template.yaml --use-container
-          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file oppgave1-sam-lambda/samconfig.toml
+          sam build --template-file oppgave1_sam_lambda/template.yaml --use-container
+          sam deploy --no-confirm-changeset --no-fail-on-empty-changeset --config-file oppgave1_sam_lambda/samconfig.toml
