@@ -13,28 +13,8 @@ resource "aws_iam_role" "lambda_iam_role" {
     }]
   })
 }
-
-resource "aws_iam_role_policy" "lambda_iam_logging_policy" {
-  name = "47-lambda_iam_logging_policy"
-  role = aws_iam_role.lambda_iam_role.id  # replace with your Lambda role resource name
-
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Action = [
-          "logs:CreateLogGroup",
-          "logs:CreateLogStream",
-          "logs:PutLogEvents"
-        ],
-        Resource = "arn:aws:logs:*:*:*"
-      }
-    ]
-  })
-}
-
-resource "aws_iam_role_policy" "lambda_bedrock_policy" {
+# General IAM Policy for Bedrock, s3 and SQS
+resource "aws_iam_role_policy" "lambda_iam_image_generation_policy" {
   name = "47-lambda-bedrock-policy"
   role = aws_iam_role.lambda_iam_role.id  # replace with your Lambda role resource name
 
@@ -44,7 +24,7 @@ resource "aws_iam_role_policy" "lambda_bedrock_policy" {
       {
         Action = "bedrock:InvokeModel",
         Effect = "Allow",
-        Resource = "*" # TODO Should possibly fix this to be less priviledged
+        Resource = "arn:aws:bedrock:us-east-1::model/amazon.titan-image-generator-v1"
       },
       {
         Action: "s3:PutObject",
@@ -63,6 +43,26 @@ resource "aws_iam_role_policy" "lambda_bedrock_policy" {
     ]
   })
 }
+# IAM Policy for logging to cloudwatch
+resource "aws_iam_role_policy" "lambda_iam_logging_policy" {
+  name = "47-lambda_iam_logging_policy"
+  role = aws_iam_role.lambda_iam_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        Resource = "arn:aws:logs:*:*:*"
+      }
+    ]
+  })
+}
 
 
 # Zip the Lambda function code
@@ -71,7 +71,6 @@ data "archive_file" "lambda_zip" {
   source_file = "../lambda_sqs.py"
   output_path = "${path.module}/lambda_function.zip"
 }
-
 
 # Create the Lambda function
 # see  https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function.html

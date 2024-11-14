@@ -15,18 +15,19 @@ resource "aws_cloudwatch_metric_alarm" "sqs_approximate_age_of_oldest_message" {
   }
 
   alarm_actions = [
-    aws_sns_topic.sqs_alarms.arn
+    aws_sns_topic.sqs_image_generation_alarms.arn
   ]
 }
 
 # SNS Topic for CloudWatch Alarms
-resource "aws_sns_topic" "sqs_alarms" {
+resource "aws_sns_topic" "sqs_image_generation_alarms" {
+  display_name = "CouchEX"
   name = "${var.sqs_queue_name}-sqs-alarms"
 }
 
 # SNS Subscription (e.g., Email)
 resource "aws_sns_topic_subscription" "sqs_alarms_subscription" {
-  topic_arn = aws_sns_topic.sqs_alarms.arn
+  topic_arn = aws_sns_topic.sqs_image_generation_alarms.arn
   protocol  = "email"
   endpoint  = var.sqs_email_for_alarms
 }

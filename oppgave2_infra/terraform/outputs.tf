@@ -1,6 +1,6 @@
 output "lambda_function_url" {
   description = "URL for invoking the Lambda function"
-  value       = aws_lambda_function.infra_lambda_47.invoke_arn
+  value       = aws_lambda_function.image_generation_lambda.invoke_arn
 }
 
 output "sqs_queue_url" {
