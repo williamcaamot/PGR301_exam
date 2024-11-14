@@ -39,7 +39,7 @@ def lambda_handler(event, context):
     }
 def generateAndSaveImage(bucket_name, prompt):
     seed = random.randint(0, 2147483647)
-    s3_image_path = f"47/titan_{seed}.png"
+    s3_image_path = f"47/oppgave1/titan_{seed}.png"
 
     native_request = {
         "taskType": "TEXT_IMAGE",
