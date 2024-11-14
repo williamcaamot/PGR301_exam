@@ -43,10 +43,8 @@ Pushe til annen branch Workfow run:
 - [ ] Should always use least privilege
 
 ## Oppgave 3
-
-Docker hub image:
-> https://hub.docker.com/r/williamcaamot/oppgave3_java_sqs_client
-> 
+Image navn:
+> williamcaamot/oppgave3_java_sqs_client
 
 ### Beskrivelse av taggestrategi
 - Det er ulike måter å trigge en workflow, den kan trigges fra en push (som beskrevet i oppgaven), manuelt. 
