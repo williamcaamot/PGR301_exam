@@ -72,6 +72,7 @@ data "archive_file" "lambda_zip" {
   output_path = "${path.module}/lambda_function.zip"
 }
 
+
 # Create the Lambda function
 # see  https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function.html
 
@@ -82,7 +83,7 @@ resource "aws_lambda_function" "infra_lambda_47" {
   runtime       = "python3.9"
   filename = data.archive_file.lambda_zip.output_path
   source_code_hash = filebase64sha256(data.archive_file.lambda_zip.output_path)
-  timeout = 120
+  timeout = 40
   
   environment {
     variables = {
@@ -90,7 +91,6 @@ resource "aws_lambda_function" "infra_lambda_47" {
       KANDIDATNUMMER = var.kandidatnummer
     }
   }
-  
 }
 
 # Create a Lambda permission to allow invocation

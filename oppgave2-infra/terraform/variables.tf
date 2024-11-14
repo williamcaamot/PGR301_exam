@@ -12,13 +12,13 @@ variable "sqs_queue_name" {
 }
 
 variable "bucket_name" {
-  description = "S3 bucket name for Lambda storage"
-  type        = string
-  default     = "pgr301-couch-explorers"
+  description     = "S3 bucket name for Lambda storage"
+  type            = string
+  default         = "pgr301-couch-explorers"
 }
 
 variable "kandidatnummer" {
     description = "Kandidatnummer to select in what path to save images in bucket"
-    type = string
-    default = "47"
+    type        = string
+    default     = "47"
 }
