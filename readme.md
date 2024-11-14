@@ -27,6 +27,14 @@ Lenke til kjørt GitHub Actions workflow:
 ### A Leveranse:
 > aws sqs send-message --queue-url https://sqs.eu-west-1.amazonaws.com/244530008913/47-image-queue --message-body "Nice image"
 
+### B Leveranse:
+Pushe til main branch Workflow run:
+> https://github.com/williamcaamot/PGR301_exam/actions/runs/11839314021
+
+Pushe til annen branch Workfow run:
+
+
+
 ### To-do
 - [ ] Should use modules
 - [ ] Should use .env variables to extract necessary information and store them as .envs rather than in the text
