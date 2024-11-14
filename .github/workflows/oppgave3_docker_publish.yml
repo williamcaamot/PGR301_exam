@@ -1,26 +1,31 @@
 name: Oppgave 3 - Build and publish Docker image
+
 on:
   push:
     branches:
       - main
+
 jobs:
   BuildAndDeployOppgave3:
     name: Build and publish Java Client
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: login to docker hub
-        id: docker-hub
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker image tag
+        run: echo "IMAGE_TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      - name: Log in to Docker Hub
         env:
-          username: ${{secrets.DOCKERHUBUSERNAME}}
-          password: ${{secrets.DOCKERHUBPASSWORD}}
+          username: ${{ secrets.DOCKERHUBUSERNAME }}
+          password: ${{ secrets.DOCKERHUBPASSWORD }}
+        run: echo "$password" | docker login -u "$username" --password-stdin
+
+      - name: Build the Docker image
         run: |
-          docker login -u $username -p $password
-      - name: build the docker image
-        id: build-docker-image
-        run: |
-          ls -la 
-          docker build oppgave3_java_sqs_client/ -f oppgave3_java_sqs_client/Dockerfile -t williamcaamot/oppgave3_java_sqs_client:latest
-      - name: push the docker image
-        id: push-docker-image
-        run: docker push ${{secrets.DOCKERHUBUSERNAME}}/oppgave3_java_sqs_client:latest
+          docker build oppgave3_java_sqs_client/ \
+            -f oppgave3_java_sqs_client/Dockerfile \
+            -t ${{ secrets.DOCKERHUBUSERNAME }}/oppgave3_java_sqs_client:${{ env.IMAGE_TAG }}
+
+      - name: Push the Docker image
+        run: docker push ${{ secrets.DOCKERHUBUSERNAME }}/oppgave3_java_sqs_client:${{ env.IMAGE_TAG }}

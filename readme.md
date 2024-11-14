@@ -44,6 +44,14 @@ Pushe til annen branch Workfow run:
 
 ## Oppgave 3
 
+Docker hub image:
+> https://hub.docker.com/r/williamcaamot/oppgave3_java_sqs_client
+> 
+
+### Beskrivelse av taggestrategi
+- Det er ulike måter å trigge en workflow, den kan trigges fra en push (som beskrevet i oppgaven), manuelt. 
+
+- Kunne bruk en tag, men det krever at man manuelt endrer tags, så for full automatisering har jeg valgt å bruke commit hashen som hver commit automatisk får. Dette gjør det også enkelt for utviklere å koble en image versjon mot en commit. Dette er likevel ikke en perfekt strategi, og én av ulempene med denne strategien er at det fort kan bli mange image versjoner i dockerhub.
 
 ## Oppgave 4
 
