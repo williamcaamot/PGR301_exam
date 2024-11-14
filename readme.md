@@ -47,9 +47,7 @@ Image navn:
 > williamcaamot/oppgave3_java_sqs_client
 
 ### Beskrivelse av taggestrategi
-- Det er ulike måter å trigge en workflow, den kan trigges fra en push (som beskrevet i oppgaven), manuelt. 
-
-- Kunne bruk en tag som f.eks. versjon, men det krever at man manuelt endrer tags, så for full automatisering har jeg valgt å bruke commit hashen som hver commit automatisk får. Dette gjør det også enkelt for utviklere å koble en image versjon mot en commit. Dette er likevel ikke en perfekt strategi, og én av ulempene med denne strategien er at det fort kan bli mange image versjoner i dockerhub. Hvis man har et helt automatisert oppsett med CI/CD der commits til main skal release en ny "versjon" kan dette være en passende strategi, men hvis man ønsker å kun release en gang i blandt og at commits til main ikke nødvendigvis betyr en ny release, kan denne strategien lage unødvendig mange image versjoner i dockerhub. Et "ekte" team hadde nok laget en tagge strategi som passet godt med deres egen release strategi.
+- Strategien jeg har valgt for tagging er å bruke commit-hashen fra hver commit til main som tag, samtidig som alltid peker til den nyeste committen på main. Denne strategien er i tråd med hva som anses som god praksis innen Continuous Deployment. Dette gjør det enkelt å alltid bruke siste versjon, samtidig som man enkelt kan rulle tilbake til tidligere versjoner. Strategien gjør det også enkelt å koble commits i GitHub med imagetagger i Docker Hub. En ulempe er at det raskt kan bli mange imagetagger. Hvis man har et fullt automatisert CI/CD-oppsett der commits til main utløser en ny versjon, kan dette være en passende strategi. Men hvis man ønsker å kun release av og til, og commits til main ikke nødvendigvis betyr en ny release, kan denne strategien føre til unødvendig mange imageversjoner i Docker Hub. Et devops team ville sannsynligvis laget en taggestrategi som passer godt med deres egen releasestrategi. 
 
 ## Oppgave 4
 
