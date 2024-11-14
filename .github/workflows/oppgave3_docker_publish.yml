@@ -20,7 +20,7 @@ jobs:
         id: build-docker-image
         run: |
           ls -la 
-          docker build pgr301_exam_javaClientSQSTest/ -f oppgave3_java_sqs_client/Dockerfile -t williamcaamot/pgr301_exam_javaClientSQSTest:latest
+          docker build oppgave3_java_sqs_client/ -f oppgave3_java_sqs_client/Dockerfile -t williamcaamot/oppgave3_java_sqs_client:latest
       - name: push the docker image
         id: push-docker-image
-        run: docker push ${{secrets.DOCKERHUBUSERNAME}}/pgr301_exam_javaClientSQSTest:latest
+        run: docker push ${{secrets.DOCKERHUBUSERNAME}}/oppgave3_java_sqs_client:latest
