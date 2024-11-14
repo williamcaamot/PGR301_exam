@@ -29,7 +29,7 @@ Lenke til kjørt GitHub Actions workflow:
 
 ### B Leveranse:
 Pushe til main branch Workflow run:
-> https://github.com/williamcaamot/PG R301_exam/actions/runs/11839314021
+> https://github.com/williamcaamot/PGR301_exam/actions/runs/11840387251
 
 Pushe til annen branch Workfow run:
 > https://github.com/williamcaamot/PGR301_exam/actions/runs/11839387056
