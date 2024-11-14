@@ -1,0 +1,26 @@
+name: Oppgave 3 - Build and publish Docker image
+on:
+  push:
+    branches:
+      - main
+jobs:
+  BuildAndDeployOppgave3:
+    name: Build and publish Java Client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: login to docker hub
+        id: docker-hub
+        env:
+          username: ${{secrets.DOCKERHUBUSERNAME}}
+          password: ${{secrets.DOCKERHUBPASSWORD}}
+        run: |
+          docker login -u $username -p $password
+      - name: build the docker image
+        id: build-docker-image
+        run: |
+          ls -la 
+          docker build pgr301_exam_javaClientSQSTest/ -f oppgave3_java_sqs_client/Dockerfile -t williamcaamot/pgr301_exam_javaClientSQSTest:latest
+      - name: push the docker image
+        id: push-docker-image
+        run: docker push ${{secrets.DOCKERHUBUSERNAME}}/pgr301_exam_javaClientSQSTest:latest
