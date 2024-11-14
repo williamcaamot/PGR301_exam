@@ -14,7 +14,7 @@ Eksempel request body:
 
 ### B Leveranse:
 Lenke til kjørt GitHub Actions workflow:
-> https://github.com/williamcaamot/PGR301_exam/actions/runs/11836466950
+> https://github.com/williamcaamot/PGR301_exam/actions/runs/11839013074/job/32989460565
 
 ### To-do
 - [ ] Should try run the python tests to see if they run as expected, Glenn might do this
