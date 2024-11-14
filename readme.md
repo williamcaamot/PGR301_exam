@@ -40,9 +40,9 @@ Pushe til annen branch Workfow run:
 
 
 ### To-do
-- [ ] Should use modules
-- [ ] Should use .env variables to extract necessary information and store them as .envs rather than in the text
-- [ ] Should always use the least privileges
+- [ ] Should use modules - Check lecture
+- [ ] Make sure all resource names start with 47 to make it easy to identify
+- [X] Should always use the least privileges
 
 ## Oppgave 3
 Image navn:
@@ -54,8 +54,9 @@ Image navn:
 ### Docker-kommando:
 `docker run -e AWS_ACCESS_KEY_ID=xxx -e AWS_SECRET_ACCESS_KEY=yyy -e SQS_QUEUE_URL=https://sqs.eu-west-1.amazonaws.com/244530008913/47-image-queue williamcaamot/oppgave3_java_sqs_client "me on top of a pyramid"`
 
+
 ## Oppgave 4
-> E-post kan endres i variables.tf
+> E-post kan endres i variables.tf i oppgave2_infra mappen.
 > Eval perioder = 1
 > Period = 60
 > Threshold = 45 
