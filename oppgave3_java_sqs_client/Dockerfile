@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.9.4-eclipse-temurin-21-alpine as builder
+FROM maven:3.9.4-eclipse-temurin-17-alpine as builder
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ COPY src /app/src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Create the final image with the JAR
-FROM openjdk:21-jdk-slim
+FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
