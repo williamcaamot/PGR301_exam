@@ -49,7 +49,7 @@ Image navn:
 ### Beskrivelse av taggestrategi
 - Det er ulike måter å trigge en workflow, den kan trigges fra en push (som beskrevet i oppgaven), manuelt. 
 
-- Kunne bruk en tag, men det krever at man manuelt endrer tags, så for full automatisering har jeg valgt å bruke commit hashen som hver commit automatisk får. Dette gjør det også enkelt for utviklere å koble en image versjon mot en commit. Dette er likevel ikke en perfekt strategi, og én av ulempene med denne strategien er at det fort kan bli mange image versjoner i dockerhub.
+- Kunne bruk en tag som f.eks. versjon, men det krever at man manuelt endrer tags, så for full automatisering har jeg valgt å bruke commit hashen som hver commit automatisk får. Dette gjør det også enkelt for utviklere å koble en image versjon mot en commit. Dette er likevel ikke en perfekt strategi, og én av ulempene med denne strategien er at det fort kan bli mange image versjoner i dockerhub. Hvis man har et helt automatisert oppsett med CI/CD der commits til main skal release en ny "versjon" kan dette være en passende strategi, men hvis man ønsker å kun release en gang i blandt og at commits til main ikke nødvendigvis betyr en ny release, kan denne strategien lage unødvendig mange image versjoner i dockerhub. Et "ekte" team hadde nok laget en tagge strategi som passet godt med deres egen release strategi.
 
 ## Oppgave 4
 
