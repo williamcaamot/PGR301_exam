@@ -19,9 +19,8 @@ Lenke til kjørt GitHub Actions workflow:
 > https://github.com/williamcaamot/PGR301_exam/actions/runs/11839013074/job/32989460565
 
 ### To-do
-- [ ] Should try run the python tests to see if they run as expected, Glenn might do this
 - [ ] Could add logging to this function as a plus
-- [ ] Could define SAM role/policy for this
+- [X] Could define SAM role/policy for this
 
 ## Oppgave 2
 
@@ -41,6 +40,7 @@ Pushe til annen branch Workfow run:
 
 ### To-do
 - [ ] Should use modules - Check lecture
+- [ ] Cleanup of terraform code - make it better organized
 - [ ] Make sure all resource names start with 47 to make it easy to identify
 - [X] Should always use the least privileges
 

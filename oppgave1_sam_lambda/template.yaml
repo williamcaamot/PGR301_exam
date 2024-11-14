@@ -41,9 +41,12 @@ Resources:
           Statement:
           - Effect: "Allow"
             Action:
-            - "bedrock:InvokeModel"
-            - "s3:PutObject"
-            Resource: "*"
+              - "bedrock:InvokeModel"
+            Resource: "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-image-generator-v1"
+          - Effect: "Allow"
+            Action:
+              - "s3:PutObject"
+            Resource: "arn:aws:s3:::pgr301-couch-explorers/47/*"
 
 Outputs:
   ImageGenerationApi:
