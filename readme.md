@@ -4,11 +4,17 @@
 
 ## Oppgave 1
 ### A Leveranse:
-URL:  
+HTTP Endepunkt for Lambdafunksjonen som kan testes med Postman:  
 > https://aq295t7f7k.execute-api.eu-west-1.amazonaws.com/Prod
 
-### B Leveranse:
+Eksempel request body:
+> {
+> "prompt":"A nice dry martini on a beach"
+> }
 
+### B Leveranse:
+Lenke til kjørt GitHub Actions workflow:
+> https://github.com/williamcaamot/PGR301_exam/actions/runs/11836466950
 
 ### To-do
 - [ ] Should try run the python tests to see if they run as expected, Glenn might do this

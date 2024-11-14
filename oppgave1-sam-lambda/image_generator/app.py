@@ -4,8 +4,15 @@ import boto3
 import random
 import os
 
+# Set up the AWS clients
+bedrock_client = boto3.client("bedrock-runtime", region_name="us-east-1")
+s3_client = boto3.client("s3")
+model_id = "amazon.titan-image-generator-v1"
+bucket_name = os.environ['BUCKET_NAME']
+
+
 def lambda_handler(event, context):
-    bucket_name = os.environ['BUCKET_NAME']
+
     
     prompt = "Default prompt text"
     
@@ -31,12 +38,6 @@ def lambda_handler(event, context):
         }),
     }
 def generateAndSaveImage(bucket_name, prompt):
-    # Set up the AWS clients
-    bedrock_client = boto3.client("bedrock-runtime", region_name="us-east-1")
-    s3_client = boto3.client("s3")
-
-    model_id = "amazon.titan-image-generator-v1"
-
     seed = random.randint(0, 2147483647)
     s3_image_path = f"47/titan_{seed}.png"
 
