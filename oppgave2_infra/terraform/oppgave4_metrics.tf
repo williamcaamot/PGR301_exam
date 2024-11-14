@@ -1,8 +1,3 @@
-# SQS Queue
-resource "aws_sqs_queue" "image_queue" {
-  name = var.sqs_queue_name
-}
-
 # CloudWatch Alarm for ApproximateAgeOfOldestMessage
 resource "aws_cloudwatch_metric_alarm" "sqs_approximate_age_of_oldest_message" {
   alarm_name          = "${var.sqs_queue_name}-ApproximateAgeOfOldestMessage"
