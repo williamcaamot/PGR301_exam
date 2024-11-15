@@ -9,6 +9,7 @@ bedrock_client = boto3.client("bedrock-runtime", region_name="us-east-1")
 s3_client = boto3.client("s3")
 model_id = "amazon.titan-image-generator-v1"
 bucket_name = os.environ['BUCKET_NAME']
+kandidatnummer = os.environ['KANDIDATNUMMER']
 
 
 def lambda_handler(event, context):
@@ -39,7 +40,7 @@ def lambda_handler(event, context):
     }
 def generateAndSaveImage(bucket_name, prompt):
     seed = random.randint(0, 2147483647)
-    s3_image_path = f"47/oppgave1/titan_{seed}.png"
+    s3_image_path = f"{kandidatnummer}/oppgave1/titan_{seed}.png"
 
     native_request = {
         "taskType": "TEXT_IMAGE",
