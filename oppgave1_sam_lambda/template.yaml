@@ -43,7 +43,7 @@ Resources:
       Architectures:
         - x86_64
       Events:
-        HelloWorld:
+        ImageGeneration:
           Type: Api
           Properties:
             Path: /
@@ -80,12 +80,12 @@ Resources:
                 Resource: "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-image-generator-v1"
 
 Outputs:
-  ImageGenerationApi:
+  ImageGenerationApiOutput:
     Description: API Gateway endpoint URL for image generation
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
-  ImageGenerationFunction:
+  ImageGenerationFunctionOutput:
     Description: Image generation Lambda Function ARN
     Value: !GetAtt ImageGenerationFunction.Arn
-  SentimentFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
+  LambdaRoleImageGenerationOutput:
+    Description: "Implicit IAM Role created for Image Generation function"
     Value: !GetAtt LambdaRoleImageGeneration.Arn
