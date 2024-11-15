@@ -50,7 +50,7 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Init
-        run: terraform init -reconfigure
+        run: terraform init -reconfigure -upgrade
         working-directory: oppgave2_infra/terraform
       - name: Terraform Plan
         run: terraform plan -out=tfplan
