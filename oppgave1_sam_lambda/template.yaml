@@ -6,7 +6,16 @@ Parameters:
   BucketName:
     Type: String
     Description: "The name of the S3 bucket for storing images"
-    
+    Default: "pgr301-couch-explorers"
+  Kandidatnummer:
+    Type: String
+    Description: "Kandidatnummer for path i S3 bucket"
+    Default: "47"
+  FunctionName:
+    Type: String
+    Description: "The name of the lambda function for generating images"
+    Default: "47-oppgave1-image-generation-couchx"
+
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -22,13 +31,14 @@ Resources:
   ImageGenerationFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: "47-image-generation-couchx"
+      FunctionName: !Ref FunctionName
       CodeUri: image_generator/
       Handler: app.lambda_handler
       Runtime: python3.9
       Environment:
         Variables:
           BUCKET_NAME: !Ref BucketName
+          KANDIDATNUMMER: !Ref Kandidatnummer
       Architectures:
         - x86_64
       Events:
