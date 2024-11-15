@@ -28,3 +28,22 @@ variable "sqs_queue_name" {
   type        = string
   default     = "47-image-queue"
 }
+
+# IAM Roles and Policies
+variable "lambda_iam_logging_policy_name" {
+  description = "Name of the logging policy for the lambda"
+  type        = string
+  default     = "47-lambda_iam_logging_policy"
+}
+
+variable "lambda_iam_image_generation_policy_name" {
+  description = "Name of the image generation policy for the lambda - for s3, bedrock and sqs"
+  type        = string
+  default     = "47-lambda-bedrock-policy"
+}
+
+variable "lambda_iam_role_name" {
+  description = "Name of the logging policy for the lambda"
+  type        = string
+  default     = "47-iam-lambda-role"
+}

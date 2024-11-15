@@ -31,14 +31,8 @@ Pushe til main branch Workflow run:
 Pushe til annen branch Workfow run:
 > https://github.com/williamcaamot/PGR301_exam/actions/runs/11856737263
 
-Jeg ønsker å skrive at denne oppgaven kunne vært løst på flere måter. For eksempel kunne man ha valgt å ha kun én job i workflowen og deretter avgjort hvilke steg som skulle kjøres basert på hvilken branch det var pushet til. Likevel valgte jeg å dele det opp i to separate jobber, for å få en litt mer oversiktlig struktur. Med to jobber er det lettere å identifisere hvilken job som kjører, fremfor å gå inn I jobben å se hvilke steg som ble gjort.
-
-
-### To-do
-- [ ] Should use modules - Check lecture
-- [ ] Cleanup of terraform code - make it better organized
-- [ ] Make sure all resource names start with 47 to make it easy to identify
-- [X] Should always use the least privileges
+- Jeg ønsker å skrive at denne oppgaven kunne vært løst på flere måter. For eksempel kunne man ha valgt å ha kun én job i workflowen og deretter avgjort hvilke steg som skulle kjøres basert på hvilken branch det var pushet til. Likevel valgte jeg å dele det opp i to separate jobber, for å få en litt mer oversiktlig struktur. Med to jobber er det lettere å identifisere hvilken job som kjører, fremfor å gå inn I jobben å se hvilke steg som ble gjort.
+- Jeg lagde en TF modul for vise at jeg er kjent med dette også.
 
 ## Oppgave 3
 Image navn:

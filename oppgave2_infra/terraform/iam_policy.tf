@@ -1,6 +1,6 @@
 # IAM Policy for logging to cloudwatch
 resource "aws_iam_role_policy" "lambda_iam_logging_policy" {
-  name = "47-lambda_iam_logging_policy"
+  name = var.lambda_iam_logging_policy_name
   role = aws_iam_role.lambda_iam_role.id
 
   policy = jsonencode({
@@ -21,7 +21,7 @@ resource "aws_iam_role_policy" "lambda_iam_logging_policy" {
 
 # General IAM Policy for Bedrock, s3 and SQS
 resource "aws_iam_role_policy" "lambda_iam_image_generation_policy" {
-  name = "47-lambda-bedrock-policy"
+  name = var.lambda_iam_image_generation_policy_name
   role = aws_iam_role.lambda_iam_role.id  # replace with your Lambda role resource name
 
   policy = jsonencode({
