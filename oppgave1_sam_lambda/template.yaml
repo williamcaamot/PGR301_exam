@@ -19,9 +19,10 @@ Globals:
       LogFormat: JSON
 
 Resources:
-  47-image-generation-couchx:
+  ImageGenerationFunction:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: "47-image-generation-couchx"
       CodeUri: image_generator/
       Handler: app.lambda_handler
       Runtime: python3.9
