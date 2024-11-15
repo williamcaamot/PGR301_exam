@@ -18,10 +18,6 @@ Eksempel request body:
 Lenke til kjørt GitHub Actions workflow:
 > https://github.com/williamcaamot/PGR301_exam/actions/runs/11839013074/job/32989460565
 
-### To-do
-- [ ] Could add logging to this function as a plus
-- [X] Could define SAM role/policy for this
-
 ## Oppgave 2
 
 
