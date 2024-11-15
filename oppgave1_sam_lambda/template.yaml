@@ -78,6 +78,16 @@ Resources:
                 Action:
                   - "bedrock:InvokeModel"
                 Resource: "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-image-generator-v1"
+        - PolicyName: logging
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                Resource: "arn:aws:logs:*:*:*"
 
 Outputs:
   ImageGenerationApiOutput:
