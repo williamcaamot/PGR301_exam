@@ -34,6 +34,7 @@ Resources:
       FunctionName: !Ref FunctionName
       CodeUri: image_generator/
       Handler: app.lambda_handler
+      Role: !GetAtt LambdaRoleImageGeneration.Arn
       Runtime: python3.9
       Environment:
         Variables:
@@ -85,6 +86,6 @@ Outputs:
   ImageGenerationFunction:
     Description: Image generation Lambda Function ARN
     Value: !GetAtt ImageGenerationFunction.Arn
-  ImageGenerationFunctionIamRole:
-    Description: IAM Role for the Image Generation Lambda Function
-    Value: !GetAtt ImageGenerationFunctionRole.Arn
+  SentimentFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt LambdaRoleImageGeneration.Arn
