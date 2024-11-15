@@ -19,7 +19,7 @@ confirm_changeset = true
 resolve_s3 = true
 s3_prefix = "oppgave1-sam"
 region = "eu-west-1"
-parameter_overrides = "BucketName=\"pgr301-couch-explorers\""
+parameter_overrides = "BucketName=\"pgr301-couch-explorers\" Kandidatnummer=\"47\""
 image_repositories = []
 
 [default.package.parameters]
