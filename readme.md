@@ -31,7 +31,7 @@ Pushe til main branch Workflow run:
 Pushe til annen branch Workfow run:
 > https://github.com/williamcaamot/PGR301_exam/actions/runs/11856737263
 
-Ønsker å skrive her at denne oppgaven kunne vært løst på ulike måter (man kunne hatt kun en job i workflowen, og avgjort hvilke steps man kunne ha gjort), men jeg syns det ryddigste var å ha to jobs siden det er enklere å se hvilken job som kjører, enn hvilke steps inne i en job som kjører.
+Jeg ønsker å skrive at denne oppgaven kunne vært løst på flere måter. For eksempel kunne man ha valgt å ha kun én job i workflowen og deretter avgjort hvilke steg som skulle kjøres basert på hvilken branch det var pushet til. Likevel valgte jeg å dele det opp i to separate jobber, for å få en litt mer oversiktlig struktur. Med to jobber er det lettere å identifisere hvilken job som kjører, fremfor å gå inn I jobben å se hvilke steg som ble gjort.
 
 
 ### To-do
