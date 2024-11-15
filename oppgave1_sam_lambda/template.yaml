@@ -19,7 +19,7 @@ Globals:
       LogFormat: JSON
 
 Resources:
-  ImageGenerationFunction:
+  47-image-generation-couchx:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: image_generator/
