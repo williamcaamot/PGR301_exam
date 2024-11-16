@@ -62,5 +62,15 @@ Terskler er satt ganske aggresivt til å begynne med, men siden brukere allerede
 
 ## Oppgave 5
 
+### Eierskap og ansvar
+
+Ansvar og eierskap for applikasjonens ytelse, pålitelighet og kostnader I serverless vs. mikrotjenester vil avhenge av om man tenker på applikasjonsnivå eller infrastrukturnivå. Begge disse nivåene har stor innvirkning på hvordan DevOps-teamet har eierskap til applikasjonens ytelse, pålitelighet og kostnader.
 
 
+Hvis vi tenker på infrastrukturnivå vil DevOps-teamet få mindre ansvar og eierskap til ytelse og pålitelighet ved overgang til serverless fra mikrotjenester. Infrastrukturen abstraheres bort i serverless, og skyleverandøren tar ansvar for drift, skalerbarhet, og oppetid. Dette reduserer behovet for å konfigurere og drifte servere manuelt, noe som igjen kan føre til indre ansvar og eierskap til ytelse og pålitelighet. I mikrotjenester har teamet større kontroll for infrastrukturen, og må selv ta ansvar for vedlikehold, konfigurasjon og drift. Dette kan gi større ansvar og eierskap til ytelse og pålitelighet
+
+
+Videre, hvis vi ser på applikasjonsnivå vil teamet sannsynligvis få større eierskap til ytelse og pålitelighet ved en serverless-tilnærming. Dette er fordi serverless applikasjoner er mer fragmenterte, som gjør det enklere å se nøyaktig hva man jobber med, som igjen kan gjøre det enklere å få eierskap til individuelle tjenester. Det kan også være enklere å se hvem som er ansvarlig for en tjeneste I en serverless arkitektur, som igjen kan medvirke til mer ansvar og eierskap til de tjenestene et team jobber med. En ulempe ved serverless er at det kan bli  vanskeligere å se helheten av det man jobber med, og redusere ansvaret for ytelsen og påliteligheten til applikasjonen som en helhet. Ved mikrotjenester er tjenester typisk større og mer omfattende, noe som kan gjøre det vanskelig å få eierksap til individuelle deler. Likevel kan teamet også ha mye eierskap ved en mikrotjenestearkitektur fordi ansvaret og eierskapet til ytelse og pålitelighet er mer kollektivt som er I god tråd med devops prinsippet som handler om samarbeid og delt ansvar.
+
+
+Når det gjelder kostnader, vil DevOps-teamet sannsynligvis få større eierskap til kostnader i serverless, fordi hver funksjon faktureres separat basert på bruk. Dette gjør det enklere å identifisere hvilke tjenester som driver kostnader, og deretter iverksette tiltak for å optimalisere bruk for å få ned kostnader. Mikrotjenester driftes vanligvis på ressurser som EC2 instanser som kan gjøre det vanskeligere å identifisere nøyaktig hvilke deler av applikasjonen som driver kostnad, som igjen kan redusere eierskap og ansvar knyttet til kostnader.
