@@ -17,7 +17,7 @@ variable "kandidatnummer" {
     default     = "47"
 }
 
-# SQS Variables
+# SQS Variables & Alarm
 variable "sqs_email_for_alarms" {
   description = "The period in seconds over which the metric is evaluated."
   type        = string
@@ -27,6 +27,12 @@ variable "sqs_queue_name" {
   description = "Name of the SQS queue"
   type        = string
   default     = "47-image-queue"
+}
+
+variable "sqs_age_alarm_threshold" {
+  description = "Threshold for triggering the SQS ApproximateAgeOfOldestMessage alarm"
+  type        = number
+  default     = 45
 }
 
 # IAM Roles and Policies

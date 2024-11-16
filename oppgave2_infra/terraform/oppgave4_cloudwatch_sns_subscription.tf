@@ -5,10 +5,10 @@ resource "aws_cloudwatch_metric_alarm" "sqs_approximate_age_of_oldest_message" {
   evaluation_periods  = 1
   metric_name         = "ApproximateAgeOfOldestMessage"
   namespace           = "AWS/SQS"
-  period              = 10
+  period              = 60
   statistic           = "Maximum"
-  threshold           = 5  # Trigger alarm if message age exceeds 30 seconds
-  alarm_description   = "Alarm when the age of the oldest message in the SQS queue exceeds 30 seconds."
+  threshold           = var.sqs_age_alarm_threshold # Trigger alarm if message age exceeds 30 seconds
+  alarm_description   = "Alarm when the age of the oldest message in the SQS queue exceeds ${var.sqs_age_alarm_threshold} seconds."
 
   dimensions = {
     QueueName = aws_sqs_queue.image_queue.name

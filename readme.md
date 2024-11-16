@@ -2,6 +2,12 @@
 <h2 style="text-align:center;">Couch Explorers - Bærekraftig turisme fra sofakroken</h2>
 <img width="1181" alt="image" src="img/header.png">
 
+# Workflow status
+
+[![Build Status](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave1_lambda_deploy.yml/badge.svg)](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave1_lambda_deploy.yml)
+[![Test Status](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave2_terraform_deploy.yml/badge.svg)](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave2_terraform_deploy.yml)
+[![Deploy Status](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave3_docker_publish.yml/badge.svg)](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave3_docker_publish.yml)
+
 
 
 ## Oppgave 1
@@ -39,7 +45,7 @@ Image navn:
 `williamcaamot/oppgave3_java_sqs_client`
 
 ### Beskrivelse av taggestrategi
-> Strategien jeg har valgt for tagging er å bruke commit-hashen fra hver commit til main som tag, samtidig som latest taggen alltid peker til den nyeste committen på main. Denne strategien passer godt med kravet om at teamet alltid skal ha tilgang til den nyeste versjonen av klienten. Strategien er også i tråd med hva som anses som god praksis for Continuous Deployment. Dette gjør det enkelt å alltid bruke siste versjon, samtidig som man enkelt kan bruke tidligere versjoner. Strategien gjør det også enkelt å koble commits i GitHub med imagetagger på DockerHub. En ulempe er at det raskt kan bli mange imagetagger. Hvis man har et fullt automatisert CI/CD-oppsett der commits til main utgir en ny versjon, kan dette være en passende strategi. Hvis man ønsker å kun release av og til, og commits til main ikke nødvendigvis betyr en ny release, kan denne strategien føre til unødvendig mange imageversjoner i Docker Hub.
+> Strategien jeg har valgt for tagging er å bruke commit-hashen fra hver commit til main som tag, samtidig som latest taggen alltid peker til den nyeste committen på main. Denne strategien passer godt med kravet om at teamet alltid skal ha tilgang til den nyeste versjonen av klienten (oppgavetekst). Strategien er også i tråd med hva som anses som god praksis for Continuous Deployment. Dette gjør det enkelt å alltid bruke siste versjon, samtidig som man enkelt kan bruke tidligere versjoner. Strategien gjør det også enkelt å koble commits i GitHub med imagetagger på DockerHub. En ulempe er at det raskt kan bli mange imagetagger. Hvis man har et fullt automatisert CI/CD-oppsett der commits til main utgir en ny versjon, kan dette være en passende strategi. Hvis man ønsker å kun release av og til, og commits til main ikke nødvendigvis betyr en ny release, kan denne strategien føre til unødvendig mange imageversjoner i Docker Hub.
 
 ### Docker-kommando:
 `docker run -e AWS_ACCESS_KEY_ID=xxx -e AWS_SECRET_ACCESS_KEY=yyy -e SQS_QUEUE_URL=https://sqs.eu-west-1.amazonaws.com/244530008913/47-image-queue williamcaamot/oppgave3_java_sqs_client "me on top of a pyramid"`
@@ -51,8 +57,10 @@ Image navn:
 > Period = 60
 > Threshold = 45 
 > 
-Dette er satt ganske aggresivt til å begynne med, men siden brukere allerede har klaget i App Store er det bedre å begynne aggresivt, deretter prøve å løse problemet før man eventuelt setter mindre aggresive terskler.
+Terskler er satt ganske aggresivt til å begynne med, men siden brukere allerede har klaget i App Store (oppgavetekst) er det bedre å begynne aggresivt, deretter prøve å løse problemet før man eventuelt setter mindre aggresive terskler.
 
 
 ## Oppgave 5
+
+
 
