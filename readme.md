@@ -9,7 +9,6 @@
 [![Deploy Status](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave3_docker_publish.yml/badge.svg)](https://github.com/williamcaamot/PGR301_exam/actions/workflows/oppgave3_docker_publish.yml)
 
 
-
 ## Oppgave 1
 ### A Leveranse:
 HTTP Endepunkt for Lambdafunksjonen som kan testes med Postman:  
@@ -38,7 +37,6 @@ Pushe til annen branch Workfow run:
 > https://github.com/williamcaamot/PGR301_exam/actions/runs/11856737263
 
 #### Tilleggskommentar:
-- Jeg ønsker å skrive at denne oppgaven kunne vært løst på flere måter. For eksempel kunne man ha valgt å ha kun én job i workflowen og deretter avgjort hvilke steg som skulle kjøres basert på hvilken branch det var pushet til. Likevel valgte jeg å dele det opp i to separate jobber, for å få en litt mer oversiktlig struktur. Med to jobber er det lettere å identifisere hvilken job som kjører, fremfor å gå inn I jobben å se hvilke steg som ble gjort.
 - Jeg lagde en TF modul for vise at jeg er kjent med dette også.
 
 ## Oppgave 3
@@ -84,7 +82,6 @@ Skalerbarhet fungerer forskjellig ved mikrotjenester og serverless arkitektur. V
 Når vi ser på ressursutnyttelse, kan serverless tilnærmingen være mer effektiv. Ved serverless har man ingen servere som kjører døgnet rundt, og serverless-funksjoner skalerer også automatisk etter innkommende trafikk. Dette er svært effektivt fordi man unngår å ha ressurser kjørende, som man ikke får utnyttet. I en mikrotjeneste-arkitektur er det nødvendig å allokere ressurser og ha tjenester kjørende døgnet rundt, selv når de ikke er I bruk. Samlet sett vil ressursutnyttelse ved en serverless arkitektur i mange scenarioer være mer effektivt enn ved en mikrotjeneste arkitektur. Likevel er det en ulempe ved serverless som er at man har såkalte “cold starts”, som er å starte opp en instans av en tjeneste når den ikke har vært i bruk på en stund, som igjen kan påvirke brukeropplevelsen negativt. Problemet med cold starts kan løses med provisioned concurrency i AWS.
 
 Når det kommer til kostnadsoptimalisering, vil dette variere mye ut ifra bruken av applikasjonen. Det kan være enklere å optimalisere kostnadene ved serverless fordi man betaler per funksjonskall, men det kan bli svært kostbart hvis man har noen tjenester som får jevnt med trafikk døgnet rundt. Ved serverless betaler man betaler også et premium for å slippe å håndtere infrastrukturen selv. I scenarioer med mye og jevn trafikk vil det ofte være bedre med mikrotjenestearkitektur, siden man kan ha tjenester som kjører døgnet rundt som er langt rimeligere enn å betale for hvert funksjonskall. Det er likevel scenarioer der det vil lønne seg med serverlessarkitektur, for eksempel ved batch jobber som kun kjører en gang i uken/måneden. Serverless kan også lønne seg hvis man har en applikasjon som opplever stor variasjon i trafikk, f.eks. en ønskelisteapp som får mye trafikk når julen nærmer seg. For best mulig kostnadsoptimalisering vil en fleksibel tilnærming der man bruker både serverless-funksjoner og mikrotjenester i mange tilfeller være det mest hensiktsmessige.
-
 
 ### 4. Eierskap og ansvar
 Ansvar og eierskap for applikasjonens ytelse, pålitelighet og kostnader i serverless vs. mikrotjenester vil avhenge av om man tenker på applikasjonsnivå eller infrastrukturnivå. Begge disse nivåene har stor innvirkning på hvordan DevOps-teamet har eierskap til applikasjonens ytelse, pålitelighet og kostnader.
