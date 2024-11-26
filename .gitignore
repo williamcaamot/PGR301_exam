@@ -745,6 +745,8 @@ venv.bak/
 !.vscode/extensions.json
 .history
 
+.venv
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -771,3 +773,4 @@ $RECYCLE.BIN/
 */build/*
 
 # End of https://www.gitignore.io/api/osx,linux,python,windows,pycharm,visualstudiocode
+/.venv/
